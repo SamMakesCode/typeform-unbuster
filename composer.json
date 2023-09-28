@@ -1,0 +1,24 @@
+{
+    "name": "sammakescode/typeform-unbuster",
+    "description": "A handy PHP library for retrieving data from typeform responses",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "SamMakesCode\\TypeformUnbuster\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Sam Littler",
+            "email": "samlittler57@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=8"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^10.3"
+    }
+}
