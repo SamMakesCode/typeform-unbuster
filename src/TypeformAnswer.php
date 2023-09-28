@@ -23,6 +23,8 @@ class TypeformAnswer
             return $this->getDate();
         } else if ($this->getType() === 'file_url') {
             return $this->getFileURL();
+        } else {
+            throw new \Exception('Unhandled field type "' . $this->getType() . '".');
         }
     }
 
