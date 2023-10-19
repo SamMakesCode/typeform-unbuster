@@ -15,7 +15,7 @@ class Unbuster
      * @param string $fieldTitle
      * @return string|null
      */
-    public static function fieldValueFromTitleOrNull(TypeformResponse $response, string $fieldTitle): ?string
+    public static function fieldValueFromTitleOrNull(TypeformResponse $response, string $fieldTitle): mixed
     {
         $definition = $response->getDefinition();
         $value = null;
