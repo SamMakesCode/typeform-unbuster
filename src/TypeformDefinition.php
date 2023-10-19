@@ -25,6 +25,6 @@ class TypeformDefinition
             return new TypeformField($field);
         }
 
-        throw new \InvalidArgumentException('No field with title "' . $title . '".');
+        throw new \InvalidArgumentException('No field with title "' . $title . '". Did someone change the TypeForm form?');
     }
 }

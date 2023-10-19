@@ -27,5 +27,7 @@ class TypeformResponse
 
             return new TypeformAnswer($answer);
         }
+
+        // TODO Throw error
     }
 }
