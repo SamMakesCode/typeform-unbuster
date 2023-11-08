@@ -15,6 +15,13 @@ class TypeformDefinition
         }
     }
 
+    public function eachFieldFiltered(array $fieldIds, \Closure $closure): void
+    {
+        foreach ($fieldIds as $fieldId) {
+            $closure($this->getFieldFromId($fieldId));
+        }
+    }
+
     public function getFieldFromTitle(string $title): TypeformField
     {
         foreach ($this->definition->fields as $field) {
@@ -26,5 +33,18 @@ class TypeformDefinition
         }
 
         throw new \InvalidArgumentException('No field with title "' . $title . '". Did someone change the TypeForm form?');
+    }
+
+    public function getFieldFromId(string $fieldId): TypeformField
+    {
+        foreach ($this->definition->fields as $field) {
+            if ($field->id !== $fieldId) {
+                continue;
+            }
+
+            return new TypeformField($field);
+        }
+
+        throw new \InvalidArgumentException('No field with ID "' . $fieldId . '". Did someone change the TypeForm form?');
     }
 }
