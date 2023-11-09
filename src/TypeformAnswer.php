@@ -23,8 +23,10 @@ class TypeformAnswer
             return $this->getDate();
         } else if ($this->getType() === 'file_url') {
             return $this->getFileURL();
-        } else if ($this->getType() === 'choice' || $this->getType() === 'choices') {
+        } else if ($this->getType() === 'choice') {
             return $this->getChoice();
+        } else if ($this->getType() === 'choices') {
+            return $this->getChoices();
         } else {
             throw new \Exception('Unhandled field type "' . $this->getType() . '".');
         }
@@ -48,5 +50,10 @@ class TypeformAnswer
     public function getChoice(): string
     {
         return $this->answer->choice->label;
+    }
+
+    public function getChoices(): string
+    {
+        return implode(', ', $this->answer->choices->labels);
     }
 }
