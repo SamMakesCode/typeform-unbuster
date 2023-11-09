@@ -23,7 +23,7 @@ class TypeformAnswer
             return $this->getDate();
         } else if ($this->getType() === 'file_url') {
             return $this->getFileURL();
-        } else if ($this->getType() === 'choice') {
+        } else if ($this->getType() === 'choice' || $this->getType() === 'choices') {
             return $this->getChoice();
         } else {
             throw new \Exception('Unhandled field type "' . $this->getType() . '".');
