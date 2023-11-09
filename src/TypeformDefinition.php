@@ -18,7 +18,11 @@ class TypeformDefinition
     public function eachFieldFiltered(array $fieldIds, \Closure $closure): void
     {
         foreach ($fieldIds as $fieldId) {
-            $closure($this->getFieldFromId($fieldId));
+            try {
+                $closure($this->getFieldFromId($fieldId));
+            } catch (\InvalidArgumentException) {
+                continue;
+            }
         }
     }
 
