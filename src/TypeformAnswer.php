@@ -29,6 +29,8 @@ class TypeformAnswer
             return $this->getChoices();
         } else if ($this->getType() === 'number') {
             return $this->getNumber();
+        } else if ($this->getType() === 'boolean') {
+            return $this->getBoolean();
         } else {
             throw new \Exception('Unhandled field type "' . $this->getType() . '".');
         }
@@ -62,5 +64,10 @@ class TypeformAnswer
     public function getNumber(): int
     {
         return $this->answer->number;
+    }
+
+    public function getBoolean(): bool
+    {
+        return $this->answer->boolean;
     }
 }
