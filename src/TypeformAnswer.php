@@ -27,6 +27,8 @@ class TypeformAnswer
             return $this->getChoice();
         } else if ($this->getType() === 'choices') {
             return $this->getChoices();
+        } else if ($this->getType() === 'number') {
+            return $this->getNumber();
         } else {
             throw new \Exception('Unhandled field type "' . $this->getType() . '".');
         }
@@ -55,5 +57,10 @@ class TypeformAnswer
     public function getChoices(): string
     {
         return implode(', ', $this->answer->choices->labels);
+    }
+
+    public function getNumber(): int
+    {
+        return $this->answer->number;
     }
 }
