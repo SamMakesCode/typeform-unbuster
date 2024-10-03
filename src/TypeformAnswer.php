@@ -35,6 +35,8 @@ class TypeformAnswer
             return $this->getUrl();
         } else if ($this->getType() === 'yes_no') {
             return $this->getYesNo();
+        } else if ($this->getType() === 'phone_number') {
+            return $this->getPhoneNumber();
         } else {
             throw new \Exception('Unhandled field type "' . $this->getType() . '".');
         }
@@ -83,5 +85,10 @@ class TypeformAnswer
     public function getYesNo(): bool
     {
         return $this->answer->boolean;
+    }
+
+    public function getPhoneNumber(): string
+    {
+        return $this->answer->phone_number;
     }
 }
