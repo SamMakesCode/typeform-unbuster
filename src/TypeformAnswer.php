@@ -81,7 +81,7 @@ class TypeformAnswer
 
     public function getUrl(): string
     {
-        return $this->answer->file_url;
+        return $this->answer->url;
     }
 
     public function getYesNo(): bool
