@@ -31,6 +31,10 @@ class TypeformAnswer
             return $this->getNumber();
         } else if ($this->getType() === 'boolean') {
             return $this->getBoolean();
+        } else if ($this->getType() === 'url') {
+            return $this->getUrl();
+        } else if ($this->getType() === 'yes_no') {
+            return $this->getYesNo();
         } else {
             throw new \Exception('Unhandled field type "' . $this->getType() . '".');
         }
@@ -67,6 +71,16 @@ class TypeformAnswer
     }
 
     public function getBoolean(): bool
+    {
+        return $this->answer->boolean;
+    }
+
+    public function getUrl(): string
+    {
+        return $this->answer->file_url;
+    }
+
+    public function getYesNo(): bool
     {
         return $this->answer->boolean;
     }
