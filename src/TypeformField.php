@@ -15,7 +15,7 @@ class TypeformField
 
     public function getTitle(): string
     {
-        return $this->field->title;
+        return $this->field->title ?? $this->field->id;
     }
 
     public function getType(): string
