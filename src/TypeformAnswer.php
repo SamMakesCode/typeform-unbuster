@@ -37,6 +37,8 @@ class TypeformAnswer
             return $this->getYesNo();
         } else if ($this->getType() === 'phone_number') {
             return $this->getPhoneNumber();
+        } else if ($this->getType() === 'email') {
+            return $this->getEmail();
         } else {
             throw new \Exception('Unhandled field type "' . $this->getType() . '".');
         }
@@ -90,5 +92,10 @@ class TypeformAnswer
     public function getPhoneNumber(): string
     {
         return $this->answer->phone_number;
+    }
+
+    public function getEmail(): string
+    {
+        return $this->answer->email;
     }
 }
